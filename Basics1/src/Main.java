@@ -1,5 +1,6 @@
 import java.sql.SQLOutput;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args){
@@ -149,5 +150,131 @@ public class Main {
          7.0
          */
         System.out.println(result);
+
+        // if statement = performs a block of code if its condition is true
+        int myAge = 15;
+
+        if(myAge >= 18){
+            System.out.println("You are an adult!");
+        } else if (myAge < 0) {
+            System.out.println("You haven't born yet");
+        } else{
+            System.out.println("You are a child");
+        }
+
+        // Random Numbers
+        Random random = new Random();
+        int number1;
+        int number2;
+        double num;
+        boolean isHeads;
+
+        number1 = random.nextInt(1, 7);
+        System.out.println(number1);
+
+        number2 = random.nextInt(1, 7);
+        System.out.println(number2);
+
+        num = random.nextDouble();
+        System.out.println(num);
+
+        isHeads = random.nextBoolean();
+        System.out.println(isHeads);
+
+        // Math
+        System.out.println(Math.PI);
+        System.out.println(Math.E);
+
+        double results;
+
+        results = Math.pow(2, 3);
+        results = Math.abs(-5);
+        results = Math.sqrt(9);
+        results = Math.round(3.14);
+        results = Math.ceil(3.14);
+        results = Math.floor(3.14);
+        results = Math.max(10, 20);
+        results = Math.min(10, 20);
+        System.out.println(results);
+
+//        // Finding Hypotenuse of a Triangle
+//        Scanner scanner = new Scanner(System.in);
+//        double base;
+//        double altitude;
+//        double hypotenuse;
+//
+//        System.out.print("Enter the length of base: ");
+//        base = scanner.nextDouble();
+//
+//        System.out.print("Enter the length of altitude: ");
+//        altitude = scanner.nextDouble();
+//
+//        hypotenuse = Math.sqrt(Math.pow(base, 2) + Math.pow(altitude, 2));
+//        System.out.println("Hypotenuse is : " + hypotenuse + "cm");
+//
+//        scanner.close();
+
+        // Finding Circumference, Area and Volume
+//        Scanner scanner = new Scanner(System.in);
+//
+//        double radius;
+//        System.out.print("Enter radius: ");
+//        radius = scanner.nextDouble();
+//
+//        double circumference;
+//        circumference = 2 * Math.PI * radius;
+//        System.out.println("Circumference is " + circumference + "cm");
+//
+//        double area;
+//        area = Math.PI * Math.pow(radius, 2);
+//        System.out.println("Area is " + area + "cm²");
+//
+//        double volume;
+//        volume = (4 / 3.0) * Math.PI * Math.pow(radius, 3);
+//        System.out.println("Volume is " + volume + "cm³");
+//
+//        scanner.close();
+
+        // printf() = is a method used to format output
+        // %[flags][width][.precision][specifier-character]
+
+        String myName = "Batman";
+        char firstLetter = 'B';
+        int myage = 21;
+        double height = 177;
+        boolean isEmployed = false;
+        double myPrice = 151404;
+        double negativeNumber = -2;
+
+        System.out.printf("Hello %s\n", myName);
+        System.out.printf("Your name starts with a %c\n", firstLetter);
+        System.out.printf("You are %d years old\n", myage);
+        System.out.printf("You are %.1f cms tall\n", height);
+        System.out.printf("Employed: %b\n", isEmployed);
+
+        System.out.printf("%s is %d years old", myName, myage);
+
+        // [flags]
+        // + = output a plus
+        // , = comma grouping separator
+        // ( = negative numbers are enclosed in ()
+        // space = display a minus if negative, space if positive
+        System.out.printf("You are %+.1f cms tall\n", height);
+        System.out.printf("You are %,.1f cms tall\n", myPrice);
+        System.out.printf("You are %(.1f cms tall\n", negativeNumber);
+        System.out.printf("You are % .1f cms tall\n", negativeNumber);
+        System.out.printf("You are % .1f cms tall\n", height);
+
+        // [width]
+        // 0 = zero padding
+        // number = right justified padding
+        // negative number = left justified padding
+
+        int number = 1;
+
+        System.out.printf("%04d\n", number);
+        System.out.printf("%4d\n", number);
+        System.out.printf("%-4d\n", number);
+
     }
 }
