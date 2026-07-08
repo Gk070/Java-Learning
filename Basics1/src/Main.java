@@ -46,10 +46,10 @@ public class Main {
         System.out.println("The year is " + year);
         System.out.println("The year is " + "year");
 
-        double price = 19999.99;
+//        double price = 19999.99;
         double gpa = 3;
         double temperature = -12.5;
-        System.out.println("$" + price);
+//        System.out.println("$" + price);
         System.out.println(gpa);
 
         char grade = 'A';
@@ -57,24 +57,24 @@ public class Main {
         char currency = '$';
         System.out.println(grade);
 
-        boolean isStudent = true;
+//        boolean isStudent = true;
         boolean forSale = false;
         boolean isOnline = true;
-        System.out.println(isStudent);
+//        System.out.println(isStudent);
 
-        String name = "Geethul Krishna G D";
+//        String name = "Geethul Krishna G D";
         String food = "Mandi";
-        String email = "fake@gmail.com";
+//        String email = "fake@gmail.com";
         String car = "Mustang";
         String color = "Red";
-        System.out.println("Hello " + name);
-
-        System.out.println("Hello " + name);
+//        System.out.println("Hello " + name);
+//
+//        System.out.println("Hello " + name);
         System.out.println("You are " + age + " years old");
         System.out.println("Your gpa is : " + gpa);
         System.out.println("Your average letter grade is : " + grade);
         System.out.println("Your choice is a " + color + " " + year + " " + car);
-        System.out.println("The price is : " + currency + price);
+//        System.out.println("The price is : " + currency + price);
 
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Enter your name : ");
@@ -275,6 +275,77 @@ public class Main {
         System.out.printf("%04d\n", number);
         System.out.printf("%4d\n", number);
         System.out.printf("%-4d\n", number);
+
+        // Nested if
+        boolean isStudent = true;
+        boolean isSenior = true;
+        double price = 9.99;
+
+        if(isStudent){
+            if(isSenior){
+                System.out.println("You get a senior discount of 20%");
+                System.out.println("You get a student discount of 10%");
+                price *= 0.7;
+            }else {
+                System.out.println("You get a student discount of 10%");
+                price *= 0.9;
+            }
+        }else{
+            if(isSenior){
+                System.out.println("You get a senior discount of 20%");
+                price *= 0.8;
+            }
+            else{
+                price *= 1;
+            }
+        }
+        System.out.printf("The price of a ticket is: ₹%.2f\n", price);
+
+        // String Methods
+        String name = "  Hari Kumar  ";
+
+        int length = name.length();
+        char letter = name.charAt(0);
+        int index = name.indexOf("a");
+        int lastIndex = name.lastIndexOf("a");
+        name = name.toUpperCase();
+        name = name.toLowerCase();
+        name = name.trim();
+        name = name.replace('a', 'o');
+        System.out.println(name);
+        System.out.println(name.isEmpty());
+        System.out.println(name.contains("o"));
+        System.out.println(name.equals("password"));
+        System.out.println(name.equalsIgnoreCase("hori kumor"));
+
+        // .substring() = A method used to extract a portion of a string
+        //                .substring(start, end)
+
+        String email = "hari123@gmail.com";
+        String username = email.substring(0,email.indexOf("@"));
+        String domain = email.substring(email.indexOf("@") + 1);
+        System.out.println(domain);
+
+        // ternary operator ? = Return 1 of 2 values if a condition is true
+        // variable = (condition) ? ifTrue : ifFalse;
+
+        int score = 70;
+        String passOrFail = (score >= 60) ? "Pass" : "Fail";
+        System.out.println(passOrFail);
+
+        // Enhanced switch = A replacement to many else if statements
+        //                   (Java14 feature)
+
+        String day = "Monday";
+        switch (day){
+            case "Monday" -> System.out.println("It is a weekday");
+            case "Tuesday" -> System.out.println("It is a weekday");
+            case "Wednesday" -> System.out.println("It is s weekday");
+            case "Thursday" -> System.out.println("It is a weekday");
+            case "Friday" -> System.out.println("It is a weekday");
+            case "Saturday", "Sunday" -> System.out.println("It is the weekend");
+            default -> System.out.println(day + " is not a day");
+        }
 
     }
 }
