@@ -40,7 +40,7 @@ public class Main {
         // 1. declaration
         // 2. assignment
 
-        int age = 30;
+//        int age = 30;
         int year = 2026;
         int quantity = 1;
         System.out.println("The year is " + year);
@@ -70,7 +70,7 @@ public class Main {
 //        System.out.println("Hello " + name);
 //
 //        System.out.println("Hello " + name);
-        System.out.println("You are " + age + " years old");
+//        System.out.println("You are " + age + " years old");
         System.out.println("Your gpa is : " + gpa);
         System.out.println("Your average letter grade is : " + grade);
         System.out.println("Your choice is a " + color + " " + year + " " + car);
@@ -140,7 +140,7 @@ public class Main {
         System.out.println(c);
 
         // Order of Operations [P-E-M-D-A-S]
-        double result = 3 + 4 * (7 - 5) / 2.0;
+//        double result = 3 + 4 * (7 - 5) / 2.0;
         /*
          Order
          -----
@@ -148,8 +148,8 @@ public class Main {
          3 + 8 / 2.0
          3 + 4.0
          7.0
-         */
-        System.out.println(result);
+//         */
+//        System.out.println(result);
 
         // if statement = performs a block of code if its condition is true
         int myAge = 15;
@@ -302,21 +302,21 @@ public class Main {
         System.out.printf("The price of a ticket is: ₹%.2f\n", price);
 
         // String Methods
-        String name = "  Hari Kumar  ";
-
-        int length = name.length();
-        char letter = name.charAt(0);
-        int index = name.indexOf("a");
-        int lastIndex = name.lastIndexOf("a");
-        name = name.toUpperCase();
-        name = name.toLowerCase();
-        name = name.trim();
-        name = name.replace('a', 'o');
-        System.out.println(name);
-        System.out.println(name.isEmpty());
-        System.out.println(name.contains("o"));
-        System.out.println(name.equals("password"));
-        System.out.println(name.equalsIgnoreCase("hori kumor"));
+//        String name = "  Hari Kumar  ";
+//
+//        int length = name.length();
+//        char letter = name.charAt(0);
+//        int index = name.indexOf("a");
+//        int lastIndex = name.lastIndexOf("a");
+//        name = name.toUpperCase();
+//        name = name.toLowerCase();
+//        name = name.trim();
+//        name = name.replace('a', 'o');
+//        System.out.println(name);
+//        System.out.println(name.isEmpty());
+//        System.out.println(name.contains("o"));
+//        System.out.println(name.equals("password"));
+//        System.out.println(name.equalsIgnoreCase("hori kumor"));
 
         // .substring() = A method used to extract a portion of a string
         //                .substring(start, end)
@@ -347,5 +347,111 @@ public class Main {
             default -> System.out.println(day + " is not a day");
         }
 
+        // Logical Operators
+        // && = AND
+        // || = OR
+        // ! = NOT
+
+        double temp = -20;
+        boolean isSunny = false;
+
+        if (temp <= 30 && temp >= 0 && isSunny) {
+            System.out.println("The weather is good");
+        } else if (temp <= 30 && temp >= 0 && !isSunny) {
+            System.out.println("The weather is cloudy");
+        } else if (temp <= 30 || temp >= 0 || isSunny) {
+            System.out.println("The weather is bad");
+        }
+
+        // while loop = repeat some code forever
+        //              while some condition remains true
+//
+//        Scanner scanner = new Scanner(System.in);
+//
+//        String name = "";
+//
+//        while (name.isEmpty()) {
+//            System.out.print("Enter your name: ");
+//            name = scanner.nextLine();
+//        }
+//
+//        System.out.println("Hello " + name);
+//
+//        scanner.close();
+
+        // Infinite loop Example
+
+//        while (1 == 1) {
+//            System.out.println("This is an infinite loop");
+//        }
+
+        // do-while loop
+//
+//        Scanner scanner = new Scanner(System.in);
+//
+//        int age = 0;
+//
+//        do {
+//            System.out.println("Your age can't be negative");
+//            System.out.print("Enter your age: ");
+//            age = scanner.nextInt();
+//        } while (age < 0);
+//
+//        System.out.println("You are " + age + " years old");
+//
+//        scanner.close();
+
+
+        // for loop = execute some code a certain amount of times
+        // for (initialization; exit condition; step)
+
+        for (int i = 0; i < 10; i++){
+            System.out.println(i);
+        }
+
+        // break = break out of a loop (STOP)
+        // continue = skip current iteration of a loop (SKIP)
+
+        for (int i = 0; i < 10; i++) {
+
+            if (i == 5) {
+                break;
+            } else if (i == 3) {
+                continue;
+            }
+            System.out.println(i);
+        }
+
+        // Nested loop = A loop inside another loop
+        //               Used often with matrices or DSA
+
+        for (int j = 1; j <=3; j++) {
+            for (int i = 1; i <= 9; i++){
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
+
+        // method = a block of reusable code that is executed when called ()
+
+        String name = "Hari";
+        int age = 25;
+        happyBirthday(name);
+
+        double result = square(3);
+        System.out.println(result);
+
     }
+
+    static void happyBirthday (String name) {
+        System.out.println("Happy Birthday to you!");
+        System.out.println(("Happy Birthday to you!"));
+        System.out.printf("Happy Birthday Dear %s!\n", name);
+        System.out.println("Happy Birthday to you!");
+    }
+
+    static double square(double number) {
+        return number * number;
+    }
+
 }
