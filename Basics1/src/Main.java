@@ -1,8 +1,13 @@
+import java.sql.Array;
 import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
 public class Main {
+
+    static int x = 3; // Class scope
+
     public static void main(String[] args){
         // This is my first java program
         /*
@@ -63,7 +68,7 @@ public class Main {
 //        System.out.println(isStudent);
 
 //        String name = "Geethul Krishna G D";
-        String food = "Mandi";
+//        String food = "Mandi";
 //        String email = "fake@gmail.com";
         String car = "Mustang";
         String color = "Red";
@@ -110,16 +115,16 @@ public class Main {
 
         // Arithmetic Operators
 
-        int x = 10;
-        int y = 2;
-        int z;
-
-        z = x + y;
-        z = x - y;
-        z = x * y;
-        z = x / y;
-        z = x % y;
-        System.out.println(z);
+//        int x = 10;
+//        int y = 2;
+//        int z;
+//
+//        z = x + y;
+//        z = x - y;
+//        z = x * y;
+//        z = x / y;
+//        z = x % y;
+//        System.out.println(z);
 
         // Augmented Assignment Operators
         int a = 10;
@@ -441,6 +446,74 @@ public class Main {
         double result = square(3);
         System.out.println(result);
 
+        // Overloaded methods = methods that share the same name,
+        //                      but different parameters
+        //                      signature = name + parameters
+        System.out.println(add(1, 2));
+        System.out.println(add(1, 2, 3));
+
+        // Variable scope = where a variable can be accessed
+        int x = 1; // This is a local variable
+        System.out.println(x);
+
+        doSomething();
+
+        // Array = a collection of the same data type
+        //         * think of it as a variable that can store more than 1 value *
+        String[] fruits = {"Apple", "Orange", "Banana", "Coconut"};
+        fruits[0] = "Pineapple";
+        int numOfFruits = fruits.length;
+        System.out.println(numOfFruits);
+        System.out.println(fruits[0]);
+
+        for (int i = 0; i < numOfFruits; i++){
+            System.out.println(fruits[i]);
+        }
+
+        // Enhanced for loop
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+
+        Arrays.sort(fruits);
+        Arrays.fill(fruits, "Pineapple");
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Enter user input to arrays
+        System.out.print("What number of inputs do you want?: ");
+        int size = scanner.nextInt();
+        scanner.nextLine();
+
+        String[] foods = new String[size];
+
+        for (int i = 0; i < foods.length; i++) {
+            System.out.print("Enter a food: ");
+            foods[i] = scanner.nextLine();
+        }
+
+        for (String food : foods) {
+            System.out.println(food);
+        }
+
+        scanner.close();
+
+    }
+
+    static void doSomething(){
+        int x = 2; // This is a local variable
+        System.out.println(x);
+    }
+
+    static double add(double a, double b) {
+        return a + b;
+    }
+
+    static double add(double a, double b, double c) {
+        return a + b + c;
     }
 
     static void happyBirthday (String name) {
