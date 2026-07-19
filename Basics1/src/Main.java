@@ -460,47 +460,98 @@ public class Main {
 
         // Array = a collection of the same data type
         //         * think of it as a variable that can store more than 1 value *
-        String[] fruits = {"Apple", "Orange", "Banana", "Coconut"};
-        fruits[0] = "Pineapple";
-        int numOfFruits = fruits.length;
-        System.out.println(numOfFruits);
-        System.out.println(fruits[0]);
+//        String[] fruits = {"Apple", "Orange", "Banana", "Coconut"};
+//        fruits[0] = "Pineapple";
+//        int numOfFruits = fruits.length;
+//        System.out.println(numOfFruits);
+//        System.out.println(fruits[0]);
+//
+//        for (int i = 0; i < numOfFruits; i++){
+//            System.out.println(fruits[i]);
+//        }
+//
+//        // Enhanced for loop
+//        for (String fruit : fruits) {
+//            System.out.println(fruit);
+//        }
+//
+//        Arrays.sort(fruits);
+//        Arrays.fill(fruits, "Pineapple");
+//        for (String fruit : fruits) {
+//            System.out.println(fruit);
+//        }
 
-        for (int i = 0; i < numOfFruits; i++){
-            System.out.println(fruits[i]);
+//        Scanner scanner = new Scanner(System.in);
+//
+//        // Enter user input to arrays
+//        System.out.print("What number of inputs do you want?: ");
+//        int size = scanner.nextInt();
+//        scanner.nextLine();
+//
+//        String[] foods = new String[size];
+//
+//        for (int i = 0; i < foods.length; i++) {
+//            System.out.print("Enter a food: ");
+//            foods[i] = scanner.nextLine();
+//        }
+//
+//        for (String food : foods) {
+//            System.out.println(food);
+//        }
+//
+//        scanner.close();
+
+        int[] numbers = {10, 8, 22, 35, 46, 13};
+        int target = 11;
+        boolean isFound = false;
+
+        for (int i = 0; i < numbers.length; i++) {
+            if (target == numbers[i]) {
+                System.out.println("Element found at index: " + i);
+                isFound = true;
+                break;
+            }
         }
 
-        // Enhanced for loop
-        for (String fruit : fruits) {
-            System.out.println(fruit);
+        if (!isFound) {
+            System.out.println("Element not found in the array");
         }
 
-        Arrays.sort(fruits);
-        Arrays.fill(fruits, "Pineapple");
-        for (String fruit : fruits) {
-            System.out.println(fruit);
+        // varargs = allow a method to accept a varying number of arguments
+        //           makes methods more flexible, no need for overloaded methods
+        //           java will pack the arguments into an array
+        //           ... (ellipsis)
+
+        System.out.println(add(1, 2, 3, 4));
+
+        // 2D array = An array where each element is an array
+        //            Useful for storing a matrix of data
+
+        String[] fruits = {"Apple", "Banana", "Orange"};
+        String[] vegetables = {"Onion", "Tomato", "Beans"};
+        String[] meats = {"Chicken", "Mutton", "Beef"};
+
+        String[][] groceries = {fruits, vegetables, meats};
+
+        groceries[0][0] = "Cherry";
+        groceries[1][0] = "Brocoli";
+
+        for (String[] foods : groceries) {
+            for (String food : foods) {
+                System.out.print(food + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static int add(int... numbers) {
+        int sum = 0;
+
+        for (int number : numbers) {
+            sum += number;
         }
 
-        Scanner scanner = new Scanner(System.in);
-
-        // Enter user input to arrays
-        System.out.print("What number of inputs do you want?: ");
-        int size = scanner.nextInt();
-        scanner.nextLine();
-
-        String[] foods = new String[size];
-
-        for (int i = 0; i < foods.length; i++) {
-            System.out.print("Enter a food: ");
-            foods[i] = scanner.nextLine();
-        }
-
-        for (String food : foods) {
-            System.out.println(food);
-        }
-
-        scanner.close();
-
+        return sum;
     }
 
     static void doSomething(){
