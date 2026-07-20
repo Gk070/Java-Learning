@@ -70,7 +70,7 @@ public class Main {
 //        String name = "Geethul Krishna G D";
 //        String food = "Mandi";
 //        String email = "fake@gmail.com";
-        String car = "Mustang";
+//        String car = "Mustang";
         String color = "Red";
 //        System.out.println("Hello " + name);
 //
@@ -78,7 +78,7 @@ public class Main {
 //        System.out.println("You are " + age + " years old");
         System.out.println("Your gpa is : " + gpa);
         System.out.println("Your average letter grade is : " + grade);
-        System.out.println("Your choice is a " + color + " " + year + " " + car);
+//        System.out.println("Your choice is a " + color + " " + year + " " + car);
 //        System.out.println("The price is : " + currency + price);
 
 //        Scanner scanner = new Scanner(System.in);
@@ -542,6 +542,99 @@ public class Main {
             }
             System.out.println();
         }
+
+        // Object = An entity that holds data (attributes)
+        //          and can perform actions (methods)
+        //          It is a reference data type
+//        Car car = new Car();
+//        car.isRunning = true;
+//        System.out.println(car.make);
+//        System.out.println(car.model);
+//        System.out.println(car.isRunning);
+//        car.start();
+
+        // constructor = A special method to initialize objects
+        //               You can pass arguments to a constructor
+        //               and set up initial values
+//        Student student1 = new Student("Hari", 30, 5.6);
+//        Student student2 = new Student("Joel", 15, 9.8);
+//
+//        System.out.println(student1.name);
+//        student1.study();
+//        System.out.println(student2.name);
+
+        // Overloaded constructors = Allow a class to have multiple constructors
+        //                           with different parameter lists.
+        //                           Enable objects to be initialized in various ways.
+        User user1 = new User("Hari");
+        System.out.println(user1.username);
+
+        User user2 = new User("Joel", "joelvcu@gmail.com");
+        System.out.println(user2.email);
+
+        User user3 = new User("Hayden", "hayden123@gmail.com", 22);
+        System.out.println(user3.age);
+
+        User user4 = new User();
+        System.out.println(user4.username);
+
+        Car car1 = new Car("Ertiga", "Red");
+        Car car2 = new Car("Brezza", "Blue");
+        Car car3 = new Car("City", "Ash");
+
+        Car[] cars = {car1, car2, car3};
+
+        for (int i = 0; i < cars.length; i++){
+            cars[i].drive();
+        }
+
+        // Static = Makes a variable or method belong to the class
+        //          rather than to any specific object
+        //          Commonly used for utility methods or shared resources
+        Friend friend1 = new Friend("Joel");
+        System.out.println(friend1.name);
+
+        Friend friend2 = new Friend("Jacob");
+        System.out.println(Friend.numOfFriends);
+
+        Friend.showFriends();
+
+        // Inheritance = One class inherits the attributes and methods
+        //               from another class
+        //               Child <- Parent <- Grandparent
+//        Dog dog = new Dog();
+//        Cat cat = new Cat();
+//        Plant plant = new Plant();
+//
+//        dog.eat();
+//        dog.speak();
+//        cat.eat();
+//        cat.speak();
+//        System.out.println(plant.isAlive);
+
+        // super = Refers to the parent class (subclass <- superclass)
+        //         Used in constructors and method overriding
+        //         Calls the parent constructor to initialize attributes
+        Person person = new Person("Joel", "Samuel");
+        person.showName();
+
+        Student student = new Student("Jeiry", "George", 9.3);
+        student.showName();
+
+        Employee employee = new Employee("Jacob", "Cherian", 30000);
+        employee.showSalary();
+
+        // Method overriding = When a subclass provides its own
+        //                     implementation of a method that is already defined
+        //                     Allows for code reusability and give specific implementations.
+        Dog dog = new Dog();
+        dog.move();
+
+        Cat cat = new Cat();
+        cat.move();
+
+        Fish fish = new Fish();
+        fish.move();
     }
 
     static int add(int... numbers) {
