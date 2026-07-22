@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Main {
 
-    static int x = 3; // Class scope
+//    static int x = 3; // Class scope
 
     public static void main(String[] args){
         // This is my first java program
@@ -127,22 +127,22 @@ public class Main {
 //        System.out.println(z);
 
         // Augmented Assignment Operators
-        int a = 10;
-        int b = 3;
-
-        a += b;
-        a -= b;
-        a *= b;
-        a /= b;
-        a %= b;
-        System.out.println(a);
+//        int a = 10;
+//        int b = 3;
+//
+//        a += b;
+//        a -= b;
+//        a *= b;
+//        a /= b;
+//        a %= b;
+//        System.out.println(a);
 
         // Increment and Decrement Operator
-        int c = 1;
-
-        c++;
-        c--;
-        System.out.println(c);
+//        int c = 1;
+//
+//        c++;
+//        c--;
+//        System.out.println(c);
 
         // Order of Operations [P-E-M-D-A-S]
 //        double result = 3 + 4 * (7 - 5) / 2.0;
@@ -453,8 +453,8 @@ public class Main {
         System.out.println(add(1, 2, 3));
 
         // Variable scope = where a variable can be accessed
-        int x = 1; // This is a local variable
-        System.out.println(x);
+//        int x = 1; // This is a local variable
+//        System.out.println(x);
 
         doSomething();
 
@@ -578,15 +578,15 @@ public class Main {
         User user4 = new User();
         System.out.println(user4.username);
 
-        Car car1 = new Car("Ertiga", "Red");
-        Car car2 = new Car("Brezza", "Blue");
-        Car car3 = new Car("City", "Ash");
-
-        Car[] cars = {car1, car2, car3};
-
-        for (int i = 0; i < cars.length; i++){
-            cars[i].drive();
-        }
+//        Car car1 = new Car("Ertiga", "Red");
+//        Car car2 = new Car("Brezza", "Blue");
+//        Car car3 = new Car("City", "Ash");
+//
+//        Car[] cars = {car1, car2, car3};
+//
+//        for (int i = 0; i < cars.length; i++){
+//            cars[i].drive();
+//        }
 
         // Static = Makes a variable or method belong to the class
         //          rather than to any specific object
@@ -627,14 +627,163 @@ public class Main {
         // Method overriding = When a subclass provides its own
         //                     implementation of a method that is already defined
         //                     Allows for code reusability and give specific implementations.
-        Dog dog = new Dog();
-        dog.move();
+//        Dog dog = new Dog();
+//        dog.move();
+//
+//        Cat cat = new Cat();
+//        cat.move();
 
-        Cat cat = new Cat();
-        cat.move();
+//        Fish fish = new Fish();
+//        fish.move();
+
+        // .toString() = Method inherited from the object class.
+        //               Used to return a string representation of an object.
+        //               By default, it returns a hash code as a unique identifier.
+        //               It can be overridden to provide meaningful details.
+
+//        Car car1 = new Car("Hyundai", "Creta", 2015, "White");
+//        System.out.println(car1);
+//
+//        Car car2 = new Car("Maruti Suzuki", "Brezza", 2026, "Blue");
+//        System.out.println(car2);
+
+        // abstract = Used to define abstract classes and methods.
+        //            Abstraction is the process of hiding implementation details
+        //            and showing only the essential features;
+        //            Abstract classes can't be instantiated directly
+        //            Can contain 'abstract' methods (which must be implemented)
+        //            Can contain 'concrete' methods (which are inherited)
+
+        Circle circle = new Circle(3);
+        Triangle triangle = new Triangle(4, 5);
+        Rectangle rectangle = new Rectangle(6, 7);
+
+        System.out.println(circle.area());
+        System.out.println(triangle.area());
+        System.out.println(rectangle.area());
+        circle.display();
+
+        // Interface = A blueprint for a class that specifies a set of abstract methods
+        //             that implementing classes must define
+        //             Supports multiple inheritance-like behavior
+
+        Rabbit rabbit = new Rabbit();
+        rabbit.flee();
+
+        Hawk hawk = new Hawk();
+        hawk.hunt();
 
         Fish fish = new Fish();
-        fish.move();
+        fish.flee();
+        fish.hunt();
+
+        // Polymorphism = "POLY" = "MANY"
+        //                "MORPH" = "SHAPE"
+        //                Objects can identify as other objects.
+        //                Objects can be treated as objects of a common superclass.
+
+//        Car car = new Car();
+//        Bike bike = new Bike();
+//        Boat boat = new Boat();
+//
+//        car.go();
+//        bike.go();
+//        boat.go();
+//
+//        Vehicle[] vehicles = {car, bike, boat};
+//
+//        for (Vehicle vehicle : vehicles) {
+//            vehicle.go();
+//        }
+
+        // Runtime polymorphism = When the method that gets executed is decided
+        //                        at runtime based on the actual type of object.
+
+        Scanner scanner = new Scanner(System.in);
+
+        Animal animal;
+
+        System.out.print("Would you like dog or cat? (1 = dog, 2 = cat): ");
+        int choice = scanner.nextInt();
+
+        if (choice == 1) {
+            animal = new Dog();
+            animal.speak();
+        } else if (choice == 2) {
+            animal = new Cat();
+            animal.speak();
+        }
+
+        // They help protect object data and add rules for accessing or modifying them.
+        // GETTERS = Methods that make a field READABLE.
+        // SETTERS = Methods that make a field WRITEABLE.
+
+//        Car car = new Car("Polo", "Red", 587000);
+//        car.setColor("Green");
+//        System.out.println(car.getColor() + " " + car.getModel() + " " + car.getPrice());
+
+        // Aggregation = Represents a "has-a" relationship between objects.
+        //               One object contains another object as part of its structure,
+        //               but the contained object/s can exist independently.
+        Book book1 = new Book("The Old Man and the Sea",  127);
+        Book book2 = new Book("The Great Gatsby",  180);
+        Book book3 = new Book("The Hunger Games",  374);
+
+        Book[] books = {book1, book2, book3};
+
+        for (Book book : books) {
+            System.out.println(book.displayInfo());
+        }
+
+        Library library = new Library("Bharati Bhavan Library", 1889, books);
+        library.displayInfo();
+
+        // Composition = Represents a "part-of" relationship between objects
+        //               For example, an Engine is "part-of" a Car.
+        //               Allows complex objects to be constructed from smaller objects.
+        Car car = new Car("Ertiga", 2012, "1.4-litre K14B Petrol engine");
+        System.out.println(car.model);
+        System.out.println(car.year);
+        System.out.println(car.engine.type);
+        car.start();
+
+        // Wrapper classes = Allow primitive values (int, char, double, boolean)
+        //                   to be used as objects. "Wrap them in an object"
+        //                   Generally, don't wrap primitives unless you need an object.
+        //                   Allows use of Collections Framework and static Utility Methods.
+
+        // Autoboxing
+//        Integer a = 123;
+//        Double b = 3.14;
+//
+//        Character c = new Character('$');
+//        Boolean d = new Boolean(true);
+//        String e = "Pizza";
+
+        // Unboxing
+//        int x = a;
+//        double y = b;
+//        char z = c;
+
+//        String a = Integer.toString(123);
+//        String b = Double.toString(3.14);
+//        String c = Character.toString('@');
+//        String d = Boolean.toString(true);
+//
+//        String x = a + b + c + d;
+//        System.out.println(x);
+
+        int a = Integer.parseInt("123");
+        double b = Double.parseDouble("3.14");
+        char c = "Pizza".charAt(0);
+        boolean d = Boolean.parseBoolean("true");
+
+        System.out.println(a);
+
+        char letter = 'b';
+        System.out.println(Character.isLetter(letter));
+        System.out.println(Character.isUpperCase(letter));
+
     }
 
     static int add(int... numbers) {
