@@ -1,8 +1,7 @@
+import java.io.*;
 import java.sql.Array;
 import java.sql.SQLOutput;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
@@ -168,39 +167,39 @@ public class Main {
         }
 
         // Random Numbers
-        Random random = new Random();
-        int number1;
-        int number2;
-        double num;
-        boolean isHeads;
-
-        number1 = random.nextInt(1, 7);
-        System.out.println(number1);
-
-        number2 = random.nextInt(1, 7);
-        System.out.println(number2);
-
-        num = random.nextDouble();
-        System.out.println(num);
-
-        isHeads = random.nextBoolean();
-        System.out.println(isHeads);
-
-        // Math
-        System.out.println(Math.PI);
-        System.out.println(Math.E);
-
-        double results;
-
-        results = Math.pow(2, 3);
-        results = Math.abs(-5);
-        results = Math.sqrt(9);
-        results = Math.round(3.14);
-        results = Math.ceil(3.14);
-        results = Math.floor(3.14);
-        results = Math.max(10, 20);
-        results = Math.min(10, 20);
-        System.out.println(results);
+//        Random random = new Random();
+//        int number1;
+//        int number2;
+//        double num;
+//        boolean isHeads;
+//
+//        number1 = random.nextInt(1, 7);
+//        System.out.println(number1);
+//
+//        number2 = random.nextInt(1, 7);
+//        System.out.println(number2);
+//
+//        num = random.nextDouble();
+//        System.out.println(num);
+//
+//        isHeads = random.nextBoolean();
+//        System.out.println(isHeads);
+//
+//        // Math
+//        System.out.println(Math.PI);
+//        System.out.println(Math.E);
+//
+//        double results;
+//
+//        results = Math.pow(2, 3);
+//        results = Math.abs(-5);
+//        results = Math.sqrt(9);
+//        results = Math.round(3.14);
+//        results = Math.ceil(3.14);
+//        results = Math.floor(3.14);
+//        results = Math.max(10, 20);
+//        results = Math.min(10, 20);
+//        System.out.println(results);
 
 //        // Finding Hypotenuse of a Triangle
 //        Scanner scanner = new Scanner(System.in);
@@ -275,11 +274,11 @@ public class Main {
         // number = right justified padding
         // negative number = left justified padding
 
-        int number = 1;
-
-        System.out.printf("%04d\n", number);
-        System.out.printf("%4d\n", number);
-        System.out.printf("%-4d\n", number);
+//        int number = 1;
+//
+//        System.out.printf("%04d\n", number);
+//        System.out.printf("%4d\n", number);
+//        System.out.printf("%-4d\n", number);
 
         // Nested if
         boolean isStudent = true;
@@ -699,20 +698,20 @@ public class Main {
         // Runtime polymorphism = When the method that gets executed is decided
         //                        at runtime based on the actual type of object.
 
-        Scanner scanner = new Scanner(System.in);
-
-        Animal animal;
-
-        System.out.print("Would you like dog or cat? (1 = dog, 2 = cat): ");
-        int choice = scanner.nextInt();
-
-        if (choice == 1) {
-            animal = new Dog();
-            animal.speak();
-        } else if (choice == 2) {
-            animal = new Cat();
-            animal.speak();
-        }
+//        Scanner scanner = new Scanner(System.in);
+//
+//        Animal animal;
+//
+//        System.out.print("Would you like dog or cat? (1 = dog, 2 = cat): ");
+//        int choice = scanner.nextInt();
+//
+//        if (choice == 1) {
+//            animal = new Dog();
+//            animal.speak();
+//        } else if (choice == 2) {
+//            animal = new Cat();
+//            animal.speak();
+//        }
 
         // They help protect object data and add rules for accessing or modifying them.
         // GETTERS = Methods that make a field READABLE.
@@ -783,6 +782,89 @@ public class Main {
         char letter = 'b';
         System.out.println(Character.isLetter(letter));
         System.out.println(Character.isUpperCase(letter));
+
+        // ArrayList = A resizeable array that stores objects (autoboxing).
+        //             Arrays are fixed in size, but ArrayLists can change.
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        list.add(3);
+        list.add(2);
+        list.add(1);
+        list.remove(1);
+        list.set(0, 10);
+        System.out.println(list);
+        System.out.println(list.get(0));
+        System.out.println(list.size());
+
+        Collections.sort(list);
+        System.out.println(list);
+
+        for (Integer num : list) {
+            System.out.println(num);
+        }
+
+        // Exception = An event that interrupts the normal flow of a program
+        //             (Dividing by zero, file not found, mismatch input type)
+        //             try{}, catch{}, finally{}
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter a number: ");
+            int number = scanner.nextInt();
+            System.out.println(number);
+        } catch (ArithmeticException e) {
+            System.out.println("You can't divide by zero!");
+        } catch (InputMismatchException e) {
+            System.out.println("That wasn't a number!");
+        } catch (Exception e) {
+            // Safety net
+            System.out.println("Something went wrong!");
+        } finally {
+            scanner.close();
+            System.out.println("This always execute");
+        }
+
+        // How to write a file using Java (4 popular options)
+
+        // FileWriter = Good for small or medium-sized text files
+        // BufferedWriter = Better performance for large amounts of text
+        // PrintWriter = Best for structured data, like reports or logs
+        // FileOutputStream = Best for binary files (e.g., images, audio, files)
+
+//        String textContent = "I like Mandi!\nIt's really good!\nBuy me a mandi";
+//
+//        try (FileWriter writer = new FileWriter("test.txt");){
+//            writer.write(textContent);
+//            System.out.println("File has been written");
+//        } catch (FileNotFoundException e) {
+//            System.out.println("Could not locate file location");
+//        } catch (IOException e) {
+//            System.out.println("Could not write file");
+//        }
+
+        // How to read a file using Java (3 popular options)
+
+        // BufferedReader + FileReader: Best for reading text files line-by-line
+        // FileInputStream: Best for binary files (e.g., images, audio files)
+        // RandomAccessFile: Best for read/write specific portions of a large file
+
+        String filePath = "test.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath));){
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not locate file");
+        } catch (IOException e) {
+            System.out.println("Something went wrong");
+        }
 
     }
 
