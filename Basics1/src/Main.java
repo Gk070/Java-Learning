@@ -1,6 +1,11 @@
 import java.io.*;
 import java.sql.Array;
 import java.sql.SQLOutput;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
@@ -340,16 +345,16 @@ public class Main {
         // Enhanced switch = A replacement to many else if statements
         //                   (Java14 feature)
 
-        String day = "Monday";
-        switch (day){
-            case "Monday" -> System.out.println("It is a weekday");
-            case "Tuesday" -> System.out.println("It is a weekday");
-            case "Wednesday" -> System.out.println("It is s weekday");
-            case "Thursday" -> System.out.println("It is a weekday");
-            case "Friday" -> System.out.println("It is a weekday");
-            case "Saturday", "Sunday" -> System.out.println("It is the weekend");
-            default -> System.out.println(day + " is not a day");
-        }
+//        String day = "Monday";
+//        switch (day){
+//            case "Monday" -> System.out.println("It is a weekday");
+//            case "Tuesday" -> System.out.println("It is a weekday");
+//            case "Wednesday" -> System.out.println("It is s weekday");
+//            case "Thursday" -> System.out.println("It is a weekday");
+//            case "Friday" -> System.out.println("It is a weekday");
+//            case "Saturday", "Sunday" -> System.out.println("It is the weekend");
+//            default -> System.out.println(day + " is not a day");
+//        }
 
         // Logical Operators
         // && = AND
@@ -526,21 +531,21 @@ public class Main {
         // 2D array = An array where each element is an array
         //            Useful for storing a matrix of data
 
-        String[] fruits = {"Apple", "Banana", "Orange"};
-        String[] vegetables = {"Onion", "Tomato", "Beans"};
-        String[] meats = {"Chicken", "Mutton", "Beef"};
-
-        String[][] groceries = {fruits, vegetables, meats};
-
-        groceries[0][0] = "Cherry";
-        groceries[1][0] = "Brocoli";
-
-        for (String[] foods : groceries) {
-            for (String food : foods) {
-                System.out.print(food + " ");
-            }
-            System.out.println();
-        }
+//        String[] fruits = {"Apple", "Banana", "Orange"};
+//        String[] vegetables = {"Onion", "Tomato", "Beans"};
+//        String[] meats = {"Chicken", "Mutton", "Beef"};
+//
+//        String[][] groceries = {fruits, vegetables, meats};
+//
+//        groceries[0][0] = "Cherry";
+//        groceries[1][0] = "Brocoli";
+//
+//        for (String[] foods : groceries) {
+//            for (String food : foods) {
+//                System.out.print(food + " ");
+//            }
+//            System.out.println();
+//        }
 
         // Object = An entity that holds data (attributes)
         //          and can perform actions (methods)
@@ -866,6 +871,130 @@ public class Main {
             System.out.println("Something went wrong");
         }
 
+        // How to work with DATES & TIMES using Java
+        // (LocalDate, LocalTime, LocalDateTime, UTC timestamp)
+
+//        LocalDate date = LocalDate.now();
+//        System.out.println(date);
+
+        LocalTime time = LocalTime.now();
+        System.out.println(time);
+
+//        LocalDateTime dateTime = LocalDateTime.now();
+//        System.out.println(dateTime);
+
+        Instant instant = Instant.now();
+        System.out.println(instant);
+
+        // Custom format
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String newDateTime = dateTime.format(formatter);
+        System.out.println(newDateTime);
+
+//        LocalDate date = LocalDate.of(2024, 12, 25);
+//        System.out.println(date);
+
+        LocalDateTime dateTime1 = LocalDateTime.of(2024, 12, 25, 12, 0, 0);
+        LocalDateTime dateTime2 = LocalDateTime.of(2025, 1,1,0,0,0);
+
+        if (dateTime1.isBefore(dateTime2)) {
+            System.out.println(dateTime1 + " is earlier than " + dateTime2);
+        }
+
+        // Anonymous class = A class that doesn't have a name. Cannot be reused.
+        //                   Add custom behaviour without having to create a new class.
+        //                   Often used for one time uses (TimerTask, Runnable, callbacks)
+
+        Dog dog1 = new Dog();
+        TalkingDog talkingDog = new TalkingDog();
+        Dog dog2 = new Dog() {
+            @Override
+            void speak () {
+                System.out.println("Scooby Doo says Ruh Roh!");
+            }
+        };
+
+        dog1.speak();
+        talkingDog.speak();
+        dog2.speak();
+
+        // Timer = Class that schedules tasks at specific times or periodically
+        //         Useful for: sending notifications, scheduled updates, repetitive actions
+
+        // TimerTask = Represents the task that will be executed by the Timer
+        //             You will extend the TimerTask class to define your task
+        //             Create a subclass of TimerTask and @Override run()
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+
+            int count = 3;
+
+            @Override
+            public void run() {
+                System.out.println("Hello");
+                count--;
+                if (count <= 0) {
+                    System.out.println("Task complete");
+                    timer.cancel();
+                }
+            }
+        };
+
+        timer.schedule(task, 3000, 1000);
+
+        // Generics = A concept where you can write a class, interface, or method
+        //            that is compatible with different data types.
+        //            <T> type parameter (placeholder that gets replaced with a real type)
+        //            <String> type argument (specifies the type)
+
+        ArrayList<String> fruits = new ArrayList<>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Strawberry");
+
+        Box<String> box = new Box<>();
+        box.setItem("Banana");
+
+        System.out.println(box.getItem());
+
+        Product<String, Double> product = new Product<>("Apple", 162.0);
+        System.out.println(product.getItem());
+        System.out.println(product.getPrice());
+
+        // HashMap = A data structure that stores key-value pairs
+        //           Keys are unique, but Values can be duplicated
+        //           Does not maintain any order, but is memory efficient
+        //           HashMap<Key, Value>
+
+        HashMap<String, Double> map = new HashMap<>();
+
+        map.put("Apple", 162.0);
+        map.put("Orange", 142.5);
+        map.put("Banana", 29.0);
+        map.put("Coconut", 53.0);
+
+        map.remove("Apple");
+
+        System.out.println(map);
+        System.out.println(map.get("Orange"));
+        System.out.println(map.containsKey("Apple"));
+        System.out.println(map.containsValue(162.0));
+        System.out.println(map.size());
+
+        for (String key : map.keySet()) {
+            System.out.println(key + " : ₹" + map.get(key));
+        }
+
+        // Enums = (Enumerations) A special kind of class that
+        //         represents a fixed set of constants.
+        //         They improve code readability and are easy to maintain.
+        //         More efficient wit switches when comparing Strings.
+
+        Day day = Day.SUNDAY;
+        System.out.println(day);
+        System.out.println(day.getDayNumber());
     }
 
     static int add(int... numbers) {
